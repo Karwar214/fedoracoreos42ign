@@ -1,0 +1,36 @@
+{
+  "ignition": {
+    "version": "42.3.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "name": "aetheros",
+        "passwordHash": "password",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAA..."
+        ]
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "name": "my-service.service",
+        "enabled": true,
+        "contents": "[Service]\nExecStart=/usr/bin/echo 'Hello, Fedora CoreOS'\n[Install]\nWantedBy=multi-user.target"
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "path": "/etc/motd",
+        "mode": 0644,
+        "contents": {
+          "source": "data:,Welcome%20to%20Fedora%20CoreOS!"
+        }
+      }
+    ]
+  }
+}
